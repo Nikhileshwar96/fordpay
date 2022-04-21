@@ -2,9 +2,10 @@ balance = require("../constant");
 
 function checkBalance(userId) {
     if (!userId) {
+        return {isSuccess: false, reason: 'userId is required'}
     }
 
-    return { balance };
+    return { isSuccess: true, walletBalance: balance };
 }
 
 function sendMoney(recieverId, senderId, amount) {
@@ -16,7 +17,7 @@ function sendMoney(recieverId, senderId, amount) {
         return { isSuccess: false, reason: 'insufficient balance' }
     }
 
-    if (amount < 0) {
+    if (amount <= 0) {
         return { isSuccess: false, reason: 'invalid amount' }
     }
 
@@ -29,7 +30,7 @@ function addMoney(userId, amount) {
         return { isSuccess: false, reason: 'userId required' }
     }
 
-    if (amount < 0) {
+    if (amount <= 0) {
         return { isSuccess: false, reason: 'invalid amount' }
     }
 
