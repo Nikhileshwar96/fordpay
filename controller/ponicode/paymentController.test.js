@@ -77,7 +77,7 @@ describe("paymentController.sendMoney", () => {
 
     test("10", () => {
         let result = paymentController.sendMoney("12345", "bc23a9d531064583ace8f67dad60f6bb", 50)
-        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 50 })
+        expect(result).toEqual({ isSuccess: false, "reason": "insufficient balance",})
     })
 
     test("11", () => {
@@ -105,7 +105,7 @@ describe("paymentController.addMoney", () => {
 
     test("3", () => {
         let result = paymentController.addMoney("bc23a9d531064583ace8f67dad60f6bb", 100)
-        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 200 })
+        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 100 })
     })
 
     test("4", () => {
@@ -115,7 +115,7 @@ describe("paymentController.addMoney", () => {
 
     test("5", () => {
         let result = paymentController.addMoney("da7588892", 12.50)
-        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 112.5 })
+        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 162.5 })
     })
 
     test("6", () => {
@@ -125,7 +125,7 @@ describe("paymentController.addMoney", () => {
 
     test("7", () => {
         let result = paymentController.addMoney("c466a48309794261b64a4f02cfcc3d64", 1.0)
-        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 101 })
+        expect(result).toEqual({ isSuccess: true, transactionId: "123456", walletBalance: 163.5 })
     })
 
     test("8", () => {
