@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "nodemon app.js"
   },
-  "keywords": [],
+  "keywords": ["ford",  "interview", "node js"],
   "author": "",
   "license": "ISC",
   "dependencies": {
